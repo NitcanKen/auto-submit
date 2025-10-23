@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "8AM Auto Submit",
+  "version": "0.1.0",
+  "description": "Clicks a Submit button at exactly the configured time with frame-perfect precision. Manual navigation and login required.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "8AM Auto Submit"
+  }
+}

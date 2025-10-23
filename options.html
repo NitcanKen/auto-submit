@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>8AM Auto Submit – Options</title>
+  <style>
+    body { 
+      font-family: system-ui, -apple-system, sans-serif; 
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      color: #222;
+      background: linear-gradient(135deg, #b0b0b0 0%, #909090 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    h1 { 
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .subtitle {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .row { 
+      margin: 16px 0;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    label { 
+      width: 200px;
+      font-weight: 500;
+      color: #374151;
+    }
+    input[type="text"], input[type="time"] { 
+      flex: 1;
+      padding: 10px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border 0.2s;
+    }
+    input[type="text"]:focus, input[type="time"]:focus {
+      outline: none;
+      border-color: #b0b0b0;
+    }
+    .actions { 
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #b0b0b0 0%, #909090 100%);
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(176, 176, 176, 0.4);
+    }
+    .hint { 
+      color: #6b7280;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .ok { color: #059669; font-weight: 500; }
+    .warn { color: #dc2626; font-weight: 500; }
+    fieldset { 
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    legend { 
+      padding: 0 12px;
+      color: #b0b0b0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .info-box {
+      background: #f0f9ff;
+      border-left: 4px solid #3b82f6;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .info-box strong {
+      color: #1e40af;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    .next-run {
+      text-align: center;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⏰ 8AM Auto Submit</h1>
+    <div class="subtitle">Precise timing automation for web forms</div>
+
+    <div class="info-box">
+      <strong>How it works:</strong> Navigate to your target page and login manually. Click "Arm" in the extension popup. The extension will click the Submit button at <strong>exactly</strong> the configured time with frame-perfect precision.
+    </div>
+
+    <fieldset>
+      <legend>⏱️ Timing</legend>
+      <div class="row">
+        <label for="time">Target Time</label>
+        <input type="time" id="time" step="1" />
+        <span class="hint">24-hour format (e.g., 08:00:00)</span>
+      </div>
+      <div class="row">
+        <label></label>
+        <div class="hint">The Submit button will be clicked at <strong>exactly</strong> this time to the millisecond.</div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>🎯 Element Selectors</legend>
+      <div class="row">
+        <label for="checkboxSelector">Declaration Checkbox</label>
+        <input type="text" id="checkboxSelector" placeholder="e.g. input[type=checkbox]#agree" />
+      </div>
+      <div class="row">
+        <label></label>
+        <span class="hint">CSS selector for terms/agreement checkbox. Leave empty for auto-detection.</span>
+      </div>
+      <div class="row">
+        <label for="submitSelector">Submit Button</label>
+        <input type="text" id="submitSelector" placeholder="e.g. button.submit" />
+      </div>
+      <div class="row">
+        <label></label>
+        <span class="hint">CSS selector for the submit button. Leave empty for auto-detection.</span>
+      </div>
+      <div class="row">
+        <label for="submitTextFallback">Button Text Fallback</label>
+        <input type="text" id="submitTextFallback" placeholder="Submit" />
+      </div>
+      <div class="row">
+        <label></label>
+        <span class="hint">Text to search for if selector fails (e.g., "Submit", "Confirm", "Book").</span>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="save">💾 Save Settings</button>
+      <span id="status" class="hint"></span>
+    </div>
+
+    <div class="hint next-run">
+      Next scheduled time: <strong id="nextRun">--</strong>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
