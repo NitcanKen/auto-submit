@@ -4,7 +4,9 @@
 ## Installation
 
 ### Step 1: Download the Extension
-Download this repo from github. Make sure you have the `auto-8am-submit` folder on your computer (NOT ZIP!!!).
+Download this repo from github. Make sure you have the `auto-submit-main` folder on your computer (NOT ZIP!!!). 
+**Remember YOUR FOLDER LOCATION**
+Something like: C:\Users\asdzx\Downloads\auto-submit-main
 
 ### Step 2: Open Chrome Extensions Page
 1. Open Google Chrome
@@ -17,7 +19,7 @@ Download this repo from github. Make sure you have the `auto-8am-submit` folder 
 
 ### Step 4: Load the Extension
 1. Click the **Load unpacked** button (top-left)
-2. Navigate to and select the `auto-8am-submit` folder
+2. Navigate to and select the `auto-submit-main` folder
 3. Click **Select Folder**
 
 ### Step 5: Pin the Extension (Optional)
