@@ -5,7 +5,7 @@
 
 ### Step 1: Download the Extension
 Download this repo from github. Make sure you have the `auto-submit-main` folder on your computer (NOT ZIP!!!). 
-**Remember YOUR FOLDER LOCATION**
+**Remember YOUR FOLDER LOCATION** - 
 Something like: C:\Users\asdzx\Downloads\auto-submit-main
 
 ### Step 2: Open Chrome Extensions Page
