@@ -216,6 +216,10 @@
       margin-top: 8px;
       min-height: 16px;
     }
+    .format-hint {
+      text-align: center;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -229,8 +233,9 @@
     <div class="time-section">
       <div class="time-label">⏱️ Target Time</div>
       <div class="time-input-row">
-        <input type="time" class="time-input" id="timeInput" step="1" aria-label="Target time" />
+        <input type="text" class="time-input" id="timeInput" placeholder="08:00:00.000" pattern="[0-2][0-9]:[0-5][0-9]:[0-5][0-9]\.[0-9]{3}" aria-label="Target time" />
       </div>
+      <div class="hint format-hint">Format: HH:MM:SS.mmm (e.g., 08:00:00.500)</div>
       <div class="countdown-display" id="countdown"></div>
     </div>
 
